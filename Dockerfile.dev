@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.6
 CMD ["/bin/registrator"]
 
 ENV GOPATH /go
@@ -7,4 +7,4 @@ COPY . /go/src/github.com/gliderlabs/registrator
 RUN cd /go/src/github.com/gliderlabs/registrator \
   && git config --global http.https://gopkg.in.followRedirects true \
 	&& go get \
-	&& go build -ldflags "-X main.Version=dev" -o /bin/registrator
+	&& go build -tags no_metrics -ldflags "-X main.Version=dev" -o /bin/registrator

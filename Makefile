@@ -1,6 +1,6 @@
 NAME=registrator
 VERSION=$(shell cat VERSION)
-DEV_RUN_OPTS ?= consul:
+DEV_RUN_OPTS ?= koala://172.17.0.1
 
 dev:
 	docker build -f Dockerfile.dev -t $(NAME):dev .
